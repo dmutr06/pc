@@ -1,19 +1,7 @@
+#include "matrix.h"
+
 #include <print>
-#include <cstdio>
 #include <cstdlib>
-#include <ctime>
-#include <vector>
-#include <random>
-
-void fill_matrix(std::vector<int> &matrix) {
-    std::random_device rd;
-    std::mt19937 eng(rd());
-    std::uniform_int_distribution dist(1, 100);
-
-    for (int &cell : matrix) {
-        cell = dist(eng);
-    }    
-}
 
 int main(int argc, char **argv) {
     if (argc < 2) {
@@ -26,6 +14,8 @@ int main(int argc, char **argv) {
     std::vector<int> matrix(matrix_size * matrix_size);
 
     fill_matrix(matrix);
-
-    std::println("{}", matrix);
+    print_matrix(matrix);
+    process_multi_thread(matrix, 2);
+    std::println("-------");
+    print_matrix(matrix);
 }
