@@ -1,0 +1,7 @@
+main
+build/
+
+venv/
+
+benchmark_results.csv
+time_plot.png
